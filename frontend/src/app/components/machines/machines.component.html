@@ -1,0 +1,22 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a [routerLink]="'/login'" class="nav-link active" aria-current="page">Login</a>
+          <div *ngIf="permissions.indexOf('CAN_CREATE_MACHINES')>-1" >
+            <a [routerLink]="'/machines-create'" class="nav-link active" aria-current="page">Create machine</a>
+          </div>
+          <div *ngIf="permissions.indexOf('CAN_SEARCH_MACHINES')>-1" >
+            <a [routerLink]="'/machines-search'" class="nav-link active" aria-current="page">Search machines</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+<div class="container pt-3">
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,18 @@
+<h1>Create User</h1>
+<label>Name</label>
+<input type="text" [(ngModel)]="name">
+<br>
+<label>Surname</label>
+<input type="text" [(ngModel)]="surname">
+<br>
+<label>Email</label>
+<input type="text" [(ngModel)]="email">
+<br>
+<label>Password</label>
+<input type="text" [(ngModel)]="password">
+<br>
+<div *ngFor="let permission of allPermissions">
+  <label>{{permission.permission}}</label> <input type="Submit" value="Add" (click)="addPermission(permission)">
+</div>
+
+<input type="Submit" value="Create" (click)="submit()">

@@ -1,0 +1,19 @@
+<h1>All users</h1>
+<div *ngFor="let user of allUsers">
+  <h5> {{user.id}} {{user.name}} {{user.surname}} {{user.email}}</h5>
+  <h5>Permissions:</h5>
+  <div *ngFor="let permission of user.permissions" >
+    <p> - {{permission.permission}}</p>
+  </div>
+  <h5>Machines:</h5>
+  <div *ngFor="let machine of user.machines" >
+    <p> - {{machine.id}} {{machine.name}}</p>
+  </div>
+  <div *ngIf="permissions.indexOf('CAN_UPDATE_USERS')>-1">
+    <a [routerLink]="['/users-edit',user.id]"><button class="btn btn-success pull-right" > Edit </button></a>
+  </div>
+  <div *ngIf="permissions.indexOf('CAN_DELETE_USERS')>-1">
+    <input type="button" value="Delete" (click)="delete(user)">
+  </div>
+  <hr>
+</div>

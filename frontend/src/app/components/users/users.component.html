@@ -1,0 +1,22 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a [routerLink]="'/login'" class="nav-link active" aria-current="page">Login</a>
+          <div *ngIf="permissions.indexOf('CAN_READ_USERS')>-1" >
+            <a [routerLink]="'/users-read'" class="nav-link active" aria-current="page">All Users</a>
+          </div>
+          <div *ngIf="permissions.indexOf('CAN_CREATE_USERS')>-1" >
+            <a [routerLink]="'/users-create'" class="nav-link active" aria-current="page">Create User</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+<div class="container pt-3">
+  <router-outlet></router-outlet>
+</div>
